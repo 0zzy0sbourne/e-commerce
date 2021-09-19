@@ -1,0 +1,24 @@
+ .categories-container {
+     justify-content: center; 
+     margin-left: 240px; 
+     display: flex; 
+ }
+ .category-table{
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    margin-left : 750px;
+    background-color:rgb(218, 70, 70);
+ }
+ table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse; 
+  }
+  table th {
+    padding: 10px;
+  }
+  table tr td{  
+    padding: 10px;
+}
+    h1{
+    text-align: center;
+    }
