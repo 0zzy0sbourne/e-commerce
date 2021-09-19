@@ -7,20 +7,21 @@ import Dashboard from './Dashboard';
 import HomeScreen from './HomeScreen';
 function Sidebar() {
     return (
+        <div className = "sidebar">
         <Router>
             <div>
             <ul>
                 <li> 
-                    <Link to = "/">Home</Link>
+                    <a><Link to = "/">Home</Link></a>
                 </li>
                 <li>
-                <Link to="/categories">Categories</Link>
+                      <a><Link to = "/categories">Categories</Link></a>
                 </li>
                 <li>
-                <Link to="/products">Products</Link>
+                      <a><Link to = "/products">Products</Link></a>
                 </li>
                 <li>
-                <Link to="/dashboard">Dashboard</Link>
+                    <a><Link to="/dashboard">Dashboard</Link></a>
                 </li>
             </ul>
 
@@ -31,6 +32,7 @@ function Sidebar() {
             <Route path="/dashboard" component={Dashboard} />
             </div>
         </Router>
+        </div>
     )
 }
 

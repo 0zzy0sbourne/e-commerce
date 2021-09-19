@@ -1,0 +1,19 @@
+.sidebar{
+    height: 100%;  
+    width: 240px;
+    background-color: #11101d; 
+    position: fixed; 
+    top:0; 
+    left:0;
+     
+}
+
+.sidebar ul li {
+    height: 80px; 
+    list-style: none; 
+}
+
+.sidebar ul li a {
+    color: #fff; 
+    text-decoration: none;
+}
