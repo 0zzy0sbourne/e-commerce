@@ -1,17 +1,19 @@
  .categories-container {
-     position: fixed;
-    top:0; 
-     width: 10%;
+    flex-direction: column;
+    position: fixed;
+    top: 120px;
+     width: 50%;
     height: 23px;
     justify-content: center;
-     margin-left: 170px;    
+     margin-left: 400px;    
      display: flex; 
  }
+ .categories-container > * {
+    display: block; 
+    margin: 30px;
+  }
  .category-table{
      
-    margin-top: 30px; 
-    margin-bottom: 30px;
-    margin-left : 750px;
     background-color:#11101d;
  }
  table, th, td {
@@ -28,3 +30,6 @@
     h1{
     text-align: center;
     }
+    .buttons{
+  text-align: center;
+}
