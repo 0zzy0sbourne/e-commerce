@@ -1,17 +1,23 @@
  .categories-container {
-     justify-content: center; 
-     margin-left: 240px; 
+     position: fixed;
+    top:0; 
+     width: 10%;
+    height: 23px;
+    justify-content: center;
+     margin-left: 170px;    
      display: flex; 
  }
  .category-table{
+     
     margin-top: 30px; 
     margin-bottom: 30px;
     margin-left : 750px;
-    background-color:rgb(218, 70, 70);
+    background-color:#11101d;
  }
  table, th, td {
-    border: 1px solid black;
+    border: 1px solid white ;
     border-collapse: collapse; 
+    color: #fff; 
   }
   table th {
     padding: 10px;
