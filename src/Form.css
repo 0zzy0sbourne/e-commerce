@@ -1,14 +1,17 @@
-#Form{
-flex-direction: column;
+#Formdiv{
+    flex-direction: row;
     position: fixed;
-    top: 120px;
      width: 50%;
     height: 23px;
     justify-content: center;
      margin-left: 400px;    
-     display: flex; 
+     display: flex;
 }
 #Form > * {
     display: block; 
     margin: 30px;
+}
+.form{
+    display: flex; 
+    flex-direction: column;
 }

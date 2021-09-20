@@ -10,8 +10,10 @@ class HomeScreen extends Component {
     super();
 
     this.state = {
-      username: '',
-      password: '',
+      categoryName: '',
+      parentCategory: '',
+      categoryDescription: '', 
+      categoryPhoto: '',  
       items: []
     }
   };
@@ -22,14 +24,19 @@ class HomeScreen extends Component {
     let items = [...this.state.items];
 
     items.push({
-      username: this.state.username,
-      password: this.state.password
+      categoryName: this.state.categoryName,
+      parentCategory: this.state.parentCategory,
+      categoryDescription: this.state.categoryDescription, 
+      categoryPhoto: this.state.categoryPhoto
+
     });
 
     this.setState({
       items,
-      username: '',
-      password: ''
+      categoryName: '',
+      parentCategory: '',
+      categoryDescription: '', 
+      categoryPhoto: ''
     });
   };
 
@@ -45,13 +52,16 @@ class HomeScreen extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="table-form-container">
           <Table items={ this.state.items }/>
 
           <Form handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
-          newUsername={ this.state.username }
-          newPassword={ this.state.password } />
+          newCategoryName={ this.state.categoryName }
+          newParentCategory={ this.state.parentCategory }
+          newCategoryDescription = {this.state.categoryDescription}
+          newCategoryPhoto = {this.state.categoryPhoto}
+          />
       </div>
     );
   }
