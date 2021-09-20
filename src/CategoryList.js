@@ -1,7 +1,7 @@
-import React from 'react'
-import Sidebar from './Sidebar'
-import "./CategoryList.css"
-
+import React from 'react'; 
+import Sidebar from './Sidebar'; 
+import "./CategoryList.css"; 
+// import AddIcon from '@mui/icons-material/Add';
 function CategoryList() {
     return (
         <div className = "categories-container">
@@ -15,12 +15,31 @@ function CategoryList() {
                 <th>Category Photo</th>
        
             </table>
-            <div class="buttons">
-                <button onclick="categoryfunction()" id="categorybutton" type="button">Add Category</button>
+         
+
+
+          
+            <div className = "categoryinput">
+                  
+
+                <form id = "categoryform" action= "#">
+                    <input  type="text" id = "categoryname" name = "categoryname"  placeholder="Add Category" />
+                    <input  type="text" id = "parentcategory" name = "parentcategory"  placeholder="Add Category" />
+                    <input  type="text" id = "categorydescription" name = "categorydescription"  placeholder="Add Category" />
+                    <input  type="text" id = "categoryphoto" name = "categoryphoto" placeholder="Add Category" />
+                                        
+                       
+                </form> 
+                <button onclick = "addCategory()" id="categorybutton" value = "Add" type="button">Add</button>
             </div>
+            
+            
     
         </div>
     )
 }
 
 export default CategoryList
+
+
+ 

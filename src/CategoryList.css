@@ -33,3 +33,19 @@
     .buttons{
   text-align: center;
 }
+.categoryinput{
+  display: flex; 
+  align-items: center; 
+  background-color: whitesmoke;
+  border-radius: 20px;
+  padding: 10px;
+  width: 1px;
+}
+
+#categoryform {
+  display:flex; 
+  flex-direction: row;
+}
+#categoryform > input{
+  width:100px; 
+}

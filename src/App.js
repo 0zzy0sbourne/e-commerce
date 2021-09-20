@@ -1,13 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-import Sidebar from './Sidebar';
-
+import React from 'react'
+import Sidebar from "./Sidebar"; 
 function App() {
   return (
-    <div className="app">
+    <div>
       <Sidebar/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

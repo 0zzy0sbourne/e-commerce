@@ -1,0 +1,29 @@
+#Table{
+    flex-direction: column;
+    position: fixed;
+    top: 120px;
+     width: 50%;
+    height: 23px;
+    justify-content: center;
+     margin-left: 400px;    
+     display: flex;
+}
+#Table > * {
+    display: block;
+    margin: 30px; 
+}
+.table{
+        background-color:#11101d;
+
+}   
+table, th, td {
+    border: 1px solid white ;
+    border-collapse: collapse; 
+    color: #fff; 
+  }
+  table th {
+    padding: 10px;
+  }
+  table tr td{  
+    padding: 10px;
+}

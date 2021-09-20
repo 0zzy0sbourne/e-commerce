@@ -5,6 +5,7 @@ import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import Dashboard from './Dashboard';
 import HomeScreen from './HomeScreen';
+import App from "./App"; 
 function Sidebar() {
     return (
         <div className = "sidebar">
@@ -30,7 +31,7 @@ function Sidebar() {
             <Route path="/categories" component={CategoryList} />
             <Route path="/products" component={ProductList} />
             <Route path="/dashboard" component={Dashboard} />
-            </div>
+            </div>  
         </Router>
         </div>
     )

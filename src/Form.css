@@ -1,0 +1,14 @@
+#Form{
+flex-direction: column;
+    position: fixed;
+    top: 120px;
+     width: 50%;
+    height: 23px;
+    justify-content: center;
+     margin-left: 400px;    
+     display: flex; 
+}
+#Form > * {
+    display: block; 
+    margin: 30px;
+}
