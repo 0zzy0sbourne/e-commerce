@@ -3,6 +3,8 @@ import React from 'react'
 import SideBar from './SideBar'
 import Header from './Header'
 import styled from "styled-components"; 
+import "tailwindcss/tailwind.css"
+
 function App() {
   return (
     <div>

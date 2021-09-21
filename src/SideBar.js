@@ -7,6 +7,7 @@ import DraftsIcon from "@material-ui/icons/Drafts";
 import Dashboard from './Dashboard';
 import CategoryList from './CategoryList';
 import ProductList from './ProductList';
+import Categories from "./Categories"; 
 import App from './App';
 function SideBar() {
     return (
@@ -66,7 +67,7 @@ function SideBar() {
             
             
             <Route path="/products" component={ProductList} />
-            <Route path="/categories" component={CategoryList} />
+            <Route path="/categories" component={Categories} />
             <Route path="/dashboard" component={Dashboard} />
             </Switch>
             </Router>
