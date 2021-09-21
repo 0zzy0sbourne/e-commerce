@@ -1,11 +1,17 @@
 import React from 'react'
 import styled from "styled-components";
-
+import {db} from "./firebase";  
 
 function CategoryOption({name, addCategoryOption, Icon}) {
     
     const addCategory = () => {
+        const categoryName = prompt("Please enter the category name"); 
+        if(categoryName){
+            db.collection("categories").add({
+                name: categoryName,
 
+            })
+        }
     }; 
     const selectCategory = () => {
 
@@ -40,9 +46,10 @@ const CategoryOptionContainer = styled.div`
        transition: transform .10s;
         :hover {
             transform: scale(1.2);
+            color: #49274b; 
         }
         :active{
-            color: #303179; 
+            color:  #49274b; 
         }
    }
 `;
