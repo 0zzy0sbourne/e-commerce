@@ -1,28 +1,60 @@
 import React from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import styled from 'styled-components'
-import SidebarOption from './SidebarOption'
-import CreateIcon from "@material-ui/icons/Create" 
 import InboxIcon from "@material-ui/icons/Inbox"
 import AppsIcon  from "@material-ui/icons/Apps"
 import DraftsIcon from "@material-ui/icons/Drafts"; 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Dashboard from './Dashboard';
 import CategoryList from './CategoryList';
 import ProductList from './ProductList';
-import Dashboard from './Dashboard';    
-
+import App from './App';
 function SideBar() {
     return (
+        <Router>
             <SidebarContainer>
                 <SidebarHeader>
                     <SidebarInfo>
                         <h2>E-Commerce</h2>                        
                     </SidebarInfo>
                 </SidebarHeader>
+                
+                <SidebarOptionContainer >
+                    <InboxIcon fontSize = "small" style={{padding: 10}}/> 
+                 
+                        <Link to = "/" >Home</Link>
+                    
+           
+                </SidebarOptionContainer>
+
+                <SidebarOptionContainer >
+                    <InboxIcon fontSize = "small" style={{padding: 10}}/> 
+                 
+                        <Link to = "/categories" >Categories</Link>
+                    
+           
+                </SidebarOptionContainer> 
 
 
-                <SidebarOption Icon = {InboxIcon} url= "/categories" title = "Categories"/>
-                <SidebarOption  Icon = {AppsIcon} url = "/products" title = "Products"/>
-                <SidebarOption Icon = {DraftsIcon} url = "/dashboard" title = "Dashboard"/>
+
+                <SidebarOptionContainer >
+                
+                    <AppsIcon fontSize = "small" style={{padding: 10}}/>
+                    
+                        <Link to = "/products">Products</Link>
+                    
+                </SidebarOptionContainer> 
+
+
+
+                <SidebarOptionContainer >
+                
+                     <DraftsIcon fontSize = "small" style={{padding: 10}}/>
+                   
+                        <Link to = "/dashboard">Dashboard</Link>
+                    
+                 
+                </SidebarOptionContainer> 
+
                 <hr/>
 
                 <UserDropdownContainer>
@@ -30,6 +62,13 @@ function SideBar() {
                 </UserDropdownContainer>
 
             </SidebarContainer>
+            <Switch>
+            
+            <Route path="/categories" component={CategoryList} />
+            <Route path="/products" component={ProductList} />
+            <Route path="/dashboard" component={Dashboard} />
+            </Switch>
+            </Router>
     )
 }
 
@@ -60,7 +99,35 @@ const SidebarInfo = styled.div`
     margin-bottom: 5px; 
     color: #141850;
 }
+`; 
+const  SidebarOptionContainer = styled.div`
+    display: flex;
+    font-size: 12px; 
+    align-items: center; 
+    padding-left: 2px; 
+    cursor: pointer; 
+    :hover {
+        opacity: 0.8; 
+        background-color: #ed7066;
+    }
+    > * {
+        color: #141850; 
+        padding: 15px; 
+    }
+    > Link {
+        text-decoration:  none; 
+    }
+
+
 `;  
 const UserDropdownContainer = styled.div`
 
 `; 
+
+
+/*
+
+                <SidebarOption Icon = {InboxIcon} url= "/categories" title = "Categories"/>
+                <SidebarOption  Icon = {AppsIcon} url = "/products" title = "Products"/>
+                <SidebarOption Icon = {DraftsIcon} url = "/dashboard" title = "Dashboard"/> 
+*/

@@ -3,7 +3,7 @@ import "./Form.css";
 
 
 
-class CategoriesForm extends React.Component {
+class CategoriesForm extends Component {
   render() {
     return (
       <div id="formdiv">

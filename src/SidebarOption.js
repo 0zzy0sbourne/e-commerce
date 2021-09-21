@@ -1,37 +1,73 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import Dashboard from './Dashboard';   
 import App from "./App"; 
 
 function SidebarOption({Icon, url, title}) {
-    let componentName ;
-    if(title === "Categories")
-        componentName = "CategoryList"; 
-    else if(title === "Products")
-        componentName = "ProductList";
-    else if(title === "Dashboard" )
-        componentName = "Dashboard"    
-    return (
-        
+
+    const navigate = ({url, title}) => {
         <Router>
-        <SidebarOptionContainer>
+
+        
+        if(title === "Categories"){
+            
+        <Switch>
+          <Route path="/categories">
+            <CategoryList />
+          </Route>
+        </Switch>
+        }
+        else if(title === "Products"){
+        <Switch>
+          <Route path="/products">
+            <ProductList />
+          </Route>
+        </Switch>
+        }
+        else if( title === "Dashboard"){
+        <Switch>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+        
+        }
+
+        </Router>
+    }; 
+    let componentName ;
+
+    if(title === "Categories")
+        componentName = CategoryList;  
+    else if(title === "Products")
+        componentName = ProductList;
+    else if(title === "Dashboard" )
+        componentName = Dashboard;     
+     
+        return (
+        
+        
+        <SidebarOptionContainer >
+            <Router>
             {Icon && <Icon fontSize = "small" style={{padding: 10}}/>} 
             {Icon ? (
-                 <a><Link to = {url}>{title}</Link></a>
+                // <h3> { title }</h3>
+                 <a><Link to = {url}>{title}</Link></a> 
+            
             ): (
                 <SidebarOptionChannel>
-                    
+                    <span>#</span>{title}
                 </SidebarOptionChannel>
             )}
-        </SidebarOptionContainer> 
-            
             <Route exact path="/" component={App}/>  
             <Route path={url} component={componentName} />
+            </Router>
+        </SidebarOptionContainer> 
+           
         
-        </Router>
     ); 
 }
 
@@ -58,3 +94,8 @@ const SidebarOptionChannel = styled.div`
 
 
 // <span>#</span>{title}>
+
+ /*
+            <Route exact path="/" component={App}/>  
+            <Route path={url} component={componentName} />
+            */ 
