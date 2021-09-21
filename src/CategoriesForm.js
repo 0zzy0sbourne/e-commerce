@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "./Form.css"; 
-class Form extends React.Component {
+
+
+
+class CategoriesForm extends React.Component {
   render() {
     return (
       <div id="formdiv">
@@ -37,4 +40,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default CategoriesForm;

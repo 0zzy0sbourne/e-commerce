@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Table from './Table';
-import Form from './Form';
+import CategoriesForm from './CategoriesForm';
 import "./HomeScreen.css"; 
-import Table from './Table';
-
+import CategoryTable from './CategoryTable';
+// import AddIcon from '@mui/icons-material/Add';
 class HomeScreen extends Component {
   constructor() {
     super();
@@ -53,9 +52,8 @@ class HomeScreen extends Component {
   render() {
     return (
       <div className="table-form-container">
-          <Table items={ this.state.items }/>
-
-          <Form handleFormSubmit={ this.handleFormSubmit } 
+          <CategoryTable items={ this.state.items }/>
+          <CategoriesForm handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
           newCategoryName={ this.state.categoryName }
           newParentCategory={ this.state.parentCategory }

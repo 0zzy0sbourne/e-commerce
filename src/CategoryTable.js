@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Table.css";
-class Table extends React.Component {
+class CategoryTable extends React.Component {
   render() {
     const items = this.props.items;
     return (
@@ -30,4 +30,4 @@ class Table extends React.Component {
   }
 }
 
-export default Table;
+export default CategoryTable;

@@ -5,7 +5,8 @@ import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import Dashboard from './Dashboard';
 import HomeScreen from './HomeScreen';
-import App from "./App"; 
+import App from "./App";
+
 function Sidebar() {
     return (
         <div className = "sidebar">
