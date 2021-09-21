@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from "styled-components";
 import {db} from "./firebase";  
+import { collection, doc, setDoc } from "firebase/firestore"; 
+
 
 function CategoryOption({name, addCategoryOption, Icon}) {
     
     const addCategory = () => {
         const categoryName = prompt("Please enter the category name"); 
         if(categoryName){
-            db.collection("categories").add({
-                name: categoryName,
+            
+            const categoryRef = collection(db, "categories"); 
 
-            })
+            setDoc(doc(categoryRef), {
+            name: categoryName,
+         });
+           
         }
     }; 
     const selectCategory = () => {
