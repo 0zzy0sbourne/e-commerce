@@ -64,8 +64,9 @@ function SideBar() {
             </SidebarContainer>
             <Switch>
             
-            <Route path="/categories" component={CategoryList} />
+            
             <Route path="/products" component={ProductList} />
+            <Route path="/categories" component={CategoryList} />
             <Route path="/dashboard" component={Dashboard} />
             </Switch>
             </Router>

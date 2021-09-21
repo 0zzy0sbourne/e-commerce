@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import "./Table.css";
-class CategoryTable extends React.Component {
+class CategoryTable extends Component {
+  constructor (props){
+    super(props); 
+  }
   render() {
     const items = this.props.items;
     return (
