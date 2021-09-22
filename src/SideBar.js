@@ -11,6 +11,7 @@ import ProductList from './ProductList';
 import Categories from "./Categories"; 
 import App from './App';
 import CategoryPage from './CategoryPage';
+import HomePage from './HomePage';
 function SideBar() {
 
     const [showCategories, setshowCategories] = useState(false); 
@@ -43,9 +44,9 @@ function SideBar() {
 
 
 
-                <SidebarOptionContainer >
+                <SidebarOptionContainer onClick={() => setshowCategories(false)}>
                 
-                     <DraftsIcon fontSize = "small" onClick={()=>setshowCategories(false)} style={{padding: 10}}/>
+                     <DraftsIcon fontSize = "small" style={{padding: 10}}/>
                    
                         <Link to = "/dashboard"><h3>Dashboard</h3></Link>
                     
@@ -77,7 +78,7 @@ function SideBar() {
             </SidebarContainer>
             <Switch>
             
-            
+           <Route exact path ="/" component = {HomePage} />  
             <Route path="/products" component={CategoryPage} />
             <Route path="/dashboard" component={Dashboard} />
             </Switch>

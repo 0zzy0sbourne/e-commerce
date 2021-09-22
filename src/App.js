@@ -8,6 +8,9 @@ import {Provider} from "react-redux";
 import {store} from "./store"; 
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"
 import CategoryPage from './CategoryPage';
+import Dashboard from './Dashboard';
+import HomePage from './HomePage';
+
 function App() {
   return (
     <div>
@@ -19,9 +22,7 @@ function App() {
           
 
             <Switch>
-            <Route  path= "/products">
-              <CategoryPage/>
-            </Route> 
+          
           </Switch> 
 
           

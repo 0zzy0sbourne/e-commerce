@@ -1,11 +1,17 @@
 import React from 'react'
+import styled from  "styled-components"; 
 
 function Dashboard() {
     return (
-        <div>
+        <DashboardContainer>
            <p>dashboard</p>
-        </div>
+           <p>dashboard</p>
+        
+        </DashboardContainer>
     )
 }
 
 export default Dashboard
+const DashboardContainer = styled.div`
+    margin-top: 50px;
+`; 
