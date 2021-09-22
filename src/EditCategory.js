@@ -13,7 +13,7 @@ function EditCategory({categoryId}) {
         if(!categoryId){
         return false; 
         }
-     
+        
 
         db.collection('categories').doc(categoryId).set({name: inputRef.current.value}); 
     }; 

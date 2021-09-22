@@ -2,25 +2,93 @@ import React from 'react'
 import styled from "styled-components"; 
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined"; 
 import {selectCategoryId, selectName, selectDescription, selectParent} from "./slices/categorySlice"; 
-import {useSelector} from "react-redux"; 
+import {useSelector, useDispatch} from "react-redux";
 import EditCategory from './EditCategory';
+import  {setProductName, selectProductName, setDescription,setPrice, setImgUrl,setGender, setSales, selectPrice } from "./slices/productSlice"; 
 import {db} from   "./firebase"; 
-import CategoryInfo from './CategoryInfo';
+import ProductOption from './ProductOption';
 function CategoryPage() {
+
     
+    const  dispatch = useDispatch(); 
     const categoryId = useSelector(selectCategoryId); 
     const categoryName = useSelector(selectName);
     const categoryParent = useSelector(selectParent); 
     const categoryDescription = useSelector(selectDescription); 
-     
+    if(!categoryId){
+       return false; 
+    }
+
+
+
+  // const productName = useSelector(selectProductName); 
+  // console.log(productName); 
+db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setProductName(doc.data().productname)),
+      
+            
+    )
+  })
+  db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setDescription(doc.data().productdescription)),
+            
+    )
+  })
+db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setPrice(doc.data().price)),
+      
+            
+    )
+  })
+  db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setGender(doc.data().productgender)),
+      
+            
+    )
+  })
+db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setSales(doc.data().sales)),
+      
+            
+    )
+  })
+  db.collection('categories').doc(categoryId).collection('Products')
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.docs.map(doc =>
+        dispatch(setImgUrl(doc.data().imgurl)),
+      
+            
+    )
+  })
+       
+       
+    
+ 
+    
                  
     return (
         <CategoryContainer>
             <Header> 
                 <HeaderLeft>
-                    <h4>
+                    <h2>
                         <strong>{categoryName}</strong>
-                    </h4>
+                    </h2>
                 </HeaderLeft>
 
                 <HeaderRight>
@@ -32,9 +100,14 @@ function CategoryPage() {
 
                 <Body>
                    
-
-                    <h3>Category Description:</h3>
+                    <CategoryDescriptionContainer>
+                    <h3>Description:</h3>
                     <p>{categoryDescription}</p> 
+                    </CategoryDescriptionContainer>
+
+                  
+                    <ProductOption/>
+                    
 
                 </Body>
 
@@ -48,7 +121,8 @@ function CategoryPage() {
     )
 }
 
-export default CategoryPage
+export default CategoryPage; 
+
 const Body = styled.div`
 `; 
 const  CategoryContainer = styled.div`
@@ -58,10 +132,15 @@ const  CategoryContainer = styled.div`
     overflow-y: scroll;  
     margin-top:50px; 
 `;
+const ProductsContainer = styled.div`
+`; 
+const CategoryDescriptionContainer =styled.div`
+    border-bottom: 1px solid  lightgray;
+`; 
 const Header = styled.div`
   display:flex;
   justify-content: space-between; 
-  padding: 15px;
+  padding: 12px;
   border-bottom: 1px solid  lightgray; 
 `;
 
@@ -70,7 +149,7 @@ const HeaderLeft = styled.div`
     >h4 {
         margin-right: 10px;
         display: flex;
-        text-transform: lowercase; 
+         
     }    
 `;
 
@@ -91,4 +170,11 @@ const HeaderRight = styled.div`
             />
  
 
+
+{products?.docs.map((doc) => (
+                            <p>{doc.data().productname}</p>   
+                        ))}
+
+
 */ 
+

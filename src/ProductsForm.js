@@ -13,7 +13,7 @@ class  ProductsForm extends Component {
             type="text" name="productName"
             onChange={this.props.handleInputChange} />
           </label>
-          <label for="parentcategory">
+          <label htmlFor="parentcategory">
         Related Categories: 
           <input id="parentcategory" value={this.props.newRelatedCategory} 
             type="text" name="relatedCategories"
