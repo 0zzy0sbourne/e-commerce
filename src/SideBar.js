@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import styled from 'styled-components'
 import InboxIcon from "@material-ui/icons/Inbox"
@@ -10,7 +10,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ProductList from './ProductList';
 import Categories from "./Categories"; 
 import App from './App';
+import CategoryPage from './CategoryPage';
 function SideBar() {
+
+    const [showCategories, setshowCategories] = useState(false); 
+    
     return (
         <Router>
             <SidebarContainer>
@@ -20,7 +24,7 @@ function SideBar() {
                     </SidebarInfo>
                 </SidebarHeader>
                 
-                <SidebarOptionContainer >
+                <SidebarOptionContainer onClick={()=>setshowCategories(false)}>
                     <InboxIcon fontSize = "small" style={{padding: 10}}/> 
                  
                         <Link to = "/" ><h3>Home</h3></Link>
@@ -28,8 +32,8 @@ function SideBar() {
            
                 </SidebarOptionContainer>
 
-            
-                <SidebarOptionContainer >
+                
+                <SidebarOptionContainer onClick={()=>setshowCategories(true)}>
                 
                     <AppsIcon fontSize = "small" style={{padding: 10}}/>
                     
@@ -41,7 +45,7 @@ function SideBar() {
 
                 <SidebarOptionContainer >
                 
-                     <DraftsIcon fontSize = "small" style={{padding: 10}}/>
+                     <DraftsIcon fontSize = "small" onClick={()=>setshowCategories(false)} style={{padding: 10}}/>
                    
                         <Link to = "/dashboard"><h3>Dashboard</h3></Link>
                     
@@ -51,7 +55,7 @@ function SideBar() {
                 <hr/>
 
 
-                    <SidebarOptionContainer >
+                <SidebarOptionContainer onClick={() => setshowCategories(!showCategories)}>
                     <ExpandMoreIcon fontSize = "small" style={{padding: 10}}/> 
                  
                     <h3>Categories</h3>
@@ -59,8 +63,10 @@ function SideBar() {
                 </SidebarOptionContainer> 
                 <hr/>
 
-
-                <Categories/>
+                {showCategories ?
+                <Categories/> : null 
+                }
+                
 
 
 
@@ -72,7 +78,7 @@ function SideBar() {
             <Switch>
             
             
-            <Route path="/products" component={ProductList} />
+            <Route path="/products" component={CategoryPage} />
             <Route path="/dashboard" component={Dashboard} />
             </Switch>
             </Router>

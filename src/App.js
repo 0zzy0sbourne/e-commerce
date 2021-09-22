@@ -19,7 +19,7 @@ function App() {
           
 
             <Switch>
-            <Route  path= "/">
+            <Route  path= "/products">
               <CategoryPage/>
             </Route> 
           </Switch> 
