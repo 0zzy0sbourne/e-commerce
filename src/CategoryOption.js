@@ -1,37 +1,42 @@
-import React from 'react'
+import React, {Component} from 'react'
 import styled from "styled-components";
-import {db} from "./firebase";  
+import { db } from './firebase';
 import { collection, doc, setDoc } from "firebase/firestore"; 
+import CategoriesForm from './CategoriesForm';
 
+function CategoryOption ({name, addCategoryOption, Icon}) {
+           
 
-function CategoryOption({name, addCategoryOption, Icon}) {
-    
-    const addCategory = () => {
-        const categoryName = prompt("Please enter the category name"); 
+      const   addCategory =  () =>  {
+
+         const categoryName = prompt("Please enter the category name"); 
+       
         if(categoryName){
             
-            const categoryRef = collection(db, "categories"); 
+            db.collection("categories").add({
+                name: categoryName, 
+            })
+         }
+        }; 
+     
 
-            setDoc(doc(categoryRef), {
-            name: categoryName,
-         });
-           
-        }
+    const selectCategory =  () =>  {
+
     }; 
-    const selectCategory = () => {
 
-    }; 
 
+    
     return (
         <CategoryOptionContainer 
-            onClick = {addCategoryOption ? addCategory : selectCategory}
+           //  onClick = {addCategoryOption ? addCategory : selectCategory}
         >   
-            {Icon && <Icon /> }
             <h2 className = "cursor-pointer transition duration-100 transform hover:scale-125"
             
             >{name}</h2> 
         </CategoryOptionContainer>
+        
     )
+    
 }
 
 export default CategoryOption

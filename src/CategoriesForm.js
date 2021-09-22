@@ -1,9 +1,51 @@
 import React, { Component } from 'react';
-import "./Form.css"; 
+import "./Form.css";
+import { db } from './firebase';
+import { collection, doc, setDoc } from "firebase/firestore";  
 
 
 
 class CategoriesForm extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      categoryName: '',
+      parentCategory: '',
+      categoryDescription: '', 
+      items: []
+    }
+  };
+
+  handleFormSubmit = (e) => {
+    e.preventDefault();
+
+    let items = [...this.state.items];
+
+    items.push({
+      categoryName: this.state.categoryName,
+      parentCategory: this.state.parentCategory,
+      categoryDescription: this.state.categoryDescription, 
+
+    });
+
+    this.setState({
+      items,
+      categoryName: '',
+      parentCategory: '',
+      categoryDescription: '', 
+    });
+  };
+
+  handleInputChange = (e) => {
+    let input = e.target;
+    let name = e.target.name;
+    let value = input.value;
+
+    this.setState({
+      [name]: value
+    })
+  };
   render() {
     return (
       <div id="formdiv">
@@ -27,12 +69,7 @@ class CategoriesForm extends Component {
             type="text" name="categoryDescription"
             onChange={this.props.handleInputChange} />
           </label>
-          <label htmlFor="categoryphoto">
-          Category Photo:
-          <input id="categoryphoto" value={this.props.newCategoryPhoto} 
-            type="text" name="categoryPhoto"
-            onChange={this.props.handleInputChange} />
-          </label>
+
           <button type="submit" value="Submit">Add Item</button>
         </form>
       </div>
