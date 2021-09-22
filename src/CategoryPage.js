@@ -19,26 +19,19 @@ function CategoryPage() {
             <Header> 
                 <HeaderLeft>
                     <h4>
-                        <strong># category name</strong>
+                        <strong># category name {categoryId} {categoryName} {categoryDescription}</strong>
                     </h4>
                 </HeaderLeft>
 
                 <HeaderRight>
                     <p>
-                        <InfoOutlinedIcon/> Details
+                     <InfoOutlinedIcon/> Details
                     </p>
                 </HeaderRight>
             </Header>
 
-            <CategoryInfo
-                categoryId = {categoryId} 
-                categoryName = {categoryName}
-                categoryParent = {categoryParent}
-                categoryDescription = {categoryDescription}
-            >
-                {/* list out the category properties */}
+         
                
-            </CategoryInfo>
 
             <EditCategory 
              categoryId = {categoryId}
@@ -49,6 +42,7 @@ function CategoryPage() {
 
 export default CategoryPage
 const  CategoryContainer = styled.div`
+    
     flex: 0.7;
     flex-grow:1;
     overflow-y: scroll;  
@@ -57,14 +51,34 @@ const  CategoryContainer = styled.div`
 const Header = styled.div`
   display:flex;
   justify-content: space-between; 
-  padding: 20px;
+  padding: 15px;
   border-bottom: 1px solid  lightgray; 
 `;
-const HeaderLeft = styled.div`
-    
-}
 
+const HeaderLeft = styled.div`
+    display: flex;
+    >h4 {
+        margin-right: 10px;
+        display: flex;
+        text-transform: lowercase; 
+    }    
 `;
+
 const HeaderRight = styled.div`
- 
+  > p{ 
+      display: flex;
+      align-items: center; 
+  }
 `;
+
+
+/*
+   <CategoryInfo
+                categoryId = {categoryId} 
+                categoryName = {categoryName}
+                categoryParent = {categoryParent}
+                categoryDescription = {categoryDescription}
+            />
+ 
+
+*/ 

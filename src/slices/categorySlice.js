@@ -1,10 +1,10 @@
 import {createSlice, nanoid} from "@reduxjs/toolkit"; 
 
 const initialState = {
-    name: "name", 
-    parent: "parent", 
-    description: "description", 
-    categoryId: 0
+    name: null, 
+    parent: null, 
+    description: null, 
+    categoryId: null,
 }
 
 export const categorySlice = createSlice({

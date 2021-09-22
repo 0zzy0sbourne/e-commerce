@@ -5,16 +5,20 @@ import {db} from "./firebase";
 
 function EditCategory({categoryId}) {
 
-    const inputRef = useRef(null); 
+    const inputRef = useRef(null);
+    
     const changeName = (e) => {
         e.preventDefault(); 
-
-        if(categoryId){
+        
+        if(!categoryId){
         return false; 
         }
+     
 
-        db.collection("categories").doc(categoryId).set({name: inputRef.current.value}); 
+        db.collection('categories').doc(categoryId).set({name: inputRef.current.value}); 
     }; 
+
+    /* 
     
      const changeParent = (e) => {
         e.preventDefault(); 
@@ -25,19 +29,46 @@ function EditCategory({categoryId}) {
         e.preventDefault();
         
          db.collection("categories").doc(categoryId).update({name: inputRef.current.value}); 
-    }; 
+    };
+    */  
     
 
     return (
-        <inputContainer>
+        <InputContainer>
             <form>
                 <input ref = {inputRef} placeholder = {`Change/Add the name of the category`}/>
                 <Button hidden type = 'submit' onClick={changeName}>
-
+                    SEND
                 </Button>
             </form>
 
-             <form>
+           
+        </InputContainer>
+    )
+}
+
+export default EditCategory
+
+const InputContainer = styled.div`
+    border-radius: 20px;
+> form {
+    position: relative; 
+    display: flex;
+    justify-content: center;
+}
+> form > input{
+    position: fixed; 
+    bottom: 30px; 
+    width: 60%;
+    border: 1px solid gray; 
+    border-radius: 3px; 
+    padding: 20px; 
+    outline: none; 
+}
+`; 
+
+/* 
+  <form>
                 <input ref = {inputRef} placeholder = {`Change/Add the parent of the category`}/>
                 <Button hidden type = 'submit' onClick={changeParent}>
 
@@ -50,11 +81,4 @@ function EditCategory({categoryId}) {
 
                 </Button>
             </form>
-        </inputContainer>
-    )
-}
-
-export default EditCategory
-
-const inputContainer = styled.div`
-`; 
+*/ 

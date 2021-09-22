@@ -12,6 +12,7 @@ import App from './App';
 function CategoryOption ({name, addCategoryOption, id, Icon}) {
            
         const dispatch  = useDispatch(); 
+    
         const   addCategory =  () =>  {
 
         const categoryName = prompt("Please enter the category name:"); 
@@ -29,11 +30,8 @@ function CategoryOption ({name, addCategoryOption, id, Icon}) {
   
 
     const selectCategory =  () =>  {
-            if(id){
-                dispatch(enterCategory({     
-                    categoryId: id,
-                })); 
-            }
+            
+                dispatch(enterCategory(id));  
             
           
     }; 
@@ -45,10 +43,8 @@ function CategoryOption ({name, addCategoryOption, id, Icon}) {
            onClick = {addCategoryOption ? addCategory : selectCategory}
         >   
 
-        {Icon&& <Icon color="black"/>}
-        <h2 className = "cursor-pointer transition duration-100 transform hover:scale-125"
-            
-        >{name}</h2>
+        {Icon&& <Icon />}
+        <h2>{name}</h2>
             
         
         </CategoryOptionContainer>
