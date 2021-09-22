@@ -7,6 +7,7 @@ import EditCategory from './EditCategory';
 import  {setProductName, selectProductName, setDescription,setPrice, setImgUrl,setGender, setSales, selectPrice } from "./slices/productSlice"; 
 import {db} from   "./firebase"; 
 import ProductOption from './ProductOption';
+import Products from './Products';
 function CategoryPage() {
 
     
@@ -106,7 +107,7 @@ db.collection('categories').doc(categoryId).collection('Products')
                     </CategoryDescriptionContainer>
 
                   
-                    <ProductOption/>
+                    <Products categoryId = {categoryId}/>
                     
 
                 </Body>
