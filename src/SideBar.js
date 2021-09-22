@@ -5,7 +5,7 @@ import InboxIcon from "@material-ui/icons/Inbox"
 import AppsIcon  from "@material-ui/icons/Apps"
 import DraftsIcon from "@material-ui/icons/Drafts"; 
 import Dashboard from './Dashboard';
-import CategoryList from './CategoryList';
+// import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import Categories from "./Categories"; 
 import App from './App';
@@ -90,6 +90,7 @@ margin-top: 60px;
 `; 
 
 const SidebarHeader = styled.div`
+    height: 55px;
     display: flex;
     border-bottom: 2px solid #49274b; 
     padding: 13px; 

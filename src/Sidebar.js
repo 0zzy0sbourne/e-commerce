@@ -1,12 +1,12 @@
 import React from 'react'; 
 import "./Sidebar.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CategoryList from './CategoryList';
+// import CategoryList from './CategoryList';
 import ProductList from './ProductList';
 import Dashboard from './Dashboard';
 import HomeScreen from './HomeScreen';
 import App from "./App";
-
+/* 
 function Sidebar() {
     return (
         <div className = "sidebar">
@@ -39,3 +39,4 @@ function Sidebar() {
 }
 
 export default Sidebar
+*/ 

@@ -4,6 +4,7 @@ import CategoriesForm from './CategoriesForm';
 import "./HomeScreen.css"; 
 import CategoryTable from './CategoryTable';
 // import AddIcon from '@mui/icons-material/Add';
+/* 
 class HomeScreen extends Component {
   constructor() {
     super();
@@ -75,3 +76,4 @@ export default HomeScreen;
           newUsername={ this.state.username }
           newPassword={ this.state.password } />
 */  
+

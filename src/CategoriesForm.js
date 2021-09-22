@@ -2,79 +2,81 @@ import React, { Component } from 'react';
 import "./Form.css";
 import { db } from './firebase';
 import { collection, doc, setDoc } from "firebase/firestore";  
+import {useDispatch} from "react-redux"; 
+import {setName, setParent, setDescription,selectName,  selectParent, selectDescription} from "./slices/categorySlice";
+import {useSelector} from "react-redux"; 
 
 
+   
+ /*    
+       
+function CategoriesForm () {
+   
+const dispatch = useDispatch(); 
+  
 
-class CategoriesForm extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      categoryName: '',
-      parentCategory: '',
-      categoryDescription: '', 
-      items: []
-    }
-  };
-
-  handleFormSubmit = (e) => {
+const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    let items = [...this.state.items];
+     
+    db.collection("categories").add({
+            name: categoryname,
+            parent: categoryparent,
+            description: categorydescription,
+    })
 
-    items.push({
-      categoryName: this.state.categoryName,
-      parentCategory: this.state.parentCategory,
-      categoryDescription: this.state.categoryDescription, 
+ 
 
-    });
-
-    this.setState({
-      items,
-      categoryName: '',
-      parentCategory: '',
-      categoryDescription: '', 
-    });
+   
   };
 
-  handleInputChange = (e) => {
+  const handleInputChange = (e) => {
     let input = e.target;
     let name = e.target.name;
     let value = input.value;
+    if(name === "categoryName"){
+            dispatch(setName({value})); 
+        }
+        else if(name === "parentCategory"){
+            dispatch(setParent({value})); 
+        }
+        else if(name === "categoryDescription"){
+            dispatch(setDescription({value})); 
+        }
+        
 
-    this.setState({
-      [name]: value
-    })
+
   };
-  render() {
+
     return (
       <div id="formdiv">
         <h3>Add a new item to the table:</h3>  
-        <form className="form" onSubmit={this.props.handleFormSubmit}>
+        <form className="form" onSubmit={{handleFormSubmit}}>
           <label htmlFor="categoryname">
           Category Name:
-          <input id="categoryname" value={this.props.newCategoryName} 
+          <input id="categoryname" 
             type="text" name="categoryName"
-            onChange={this.props.handleInputChange} />
+            onChange={handleInputChange} />
           </label>
           <label for="parentcategory">
           Parent Category:
-          <input id="parentcategory" value={this.props.newParentCategory} 
+          <input id="parentcategory"
             type="text" name="parentCategory"
-            onChange={this.props.handleInputChange} />
+            onChange={handleInputChange} />
           </label>
           <label htmlFor="categorydescription">
           Category Description:
-          <input id="categorydescription" value={this.props.newCategoryDescription} 
+          <input id="categorydescription"  
             type="text" name="categoryDescription"
-            onChange={this.props.handleInputChange} />
+            onChange={handleInputChange} />
           </label>
 
           <button type="submit" value="Submit">Add Item</button>
         </form>
       </div>
     );
-  }
+
 }
 
 export default CategoriesForm;
+*/ 

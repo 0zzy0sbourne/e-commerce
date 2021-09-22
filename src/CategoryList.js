@@ -5,6 +5,7 @@ import "./CategoryList.css";
 import CategoriesForm from './CategoriesForm'; 
 import CategoryTable from './CategoryTable';
 // import AddIcon from '@mui/icons-material/Add';
+/* 
 class CategoryList extends Component {
   constructor() {
     super();
@@ -67,3 +68,4 @@ class CategoryList extends Component {
 }
 
 export default CategoryList;
+*/ 

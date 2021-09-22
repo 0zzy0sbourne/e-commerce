@@ -1,15 +1,16 @@
-import {createSlice} from "@reduxjs/toolkit"; 
+import {createSlice, nanoid} from "@reduxjs/toolkit"; 
 
 const initialState = {
-    name: null, 
-    parent: null, 
-    description: null
+    name: "name", 
+    parent: "parent", 
+    description: "description", 
+    categoryId: 0
 }
 
 export const categorySlice = createSlice({
     name: 'category', 
     initialState, 
-    reducer: {
+    reducers: {
         setName: (state, action) => {
             state.name = action.payload; 
         },
@@ -19,18 +20,22 @@ export const categorySlice = createSlice({
         setDescription: (state, action) => {
             state.description = action.payload; 
         },
+        enterCategory: (state,action) => {
+            state.categoryId = action.payload; 
+        }
     }, 
     
    
 });
 
 
-export  const {setName, setParent, setDescription} = categorySlice.actions; 
+export  const {setName, setParent, setDescription, enterCategory} = categorySlice.actions; 
 
 
 // selectors 
-export const selectName = (state) => state.categorySlice.name; 
-export const selectParent = (state) => state.categorySlice.parent; 
-export const selectDescription = (state) => state.categorySlice.description; 
+export const selectName = (state) => state.category.name; 
+export const selectParent = (state) => state.category.parent; 
+export const selectDescription = (state) => state.category.description; 
+export const selectCategoryId = (state) => state.category.categoryId; 
 
 export default categorySlice.reducer; 
