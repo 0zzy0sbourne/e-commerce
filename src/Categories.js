@@ -50,7 +50,7 @@ function Categories() {
         let name = e.target.name;
         let value = input.value;
 
-        state[] = value; 
+        state[name] = value; 
         
 
         /*

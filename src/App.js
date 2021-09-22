@@ -4,14 +4,18 @@ import SideBar from './SideBar'
 import Header from './Header'
 import styled from "styled-components"; 
 import "tailwindcss/tailwind.css"
-
+import {Provider} from "react-redux"; 
+import {store} from "./store"; 
 function App() {
   return (
     <div>
-      <Header/>
-      <AppBody>
+      <Provider store ={store}>
+         <Header/>
+        <AppBody>
         <SideBar/> 
       </AppBody>
+      </Provider>
+     
       
 
     </div>
