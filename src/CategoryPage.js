@@ -19,7 +19,7 @@ function CategoryPage() {
             <Header> 
                 <HeaderLeft>
                     <h4>
-                        <strong># category name {categoryId} {categoryName} {categoryDescription}</strong>
+                        <strong>{categoryName}</strong>
                     </h4>
                 </HeaderLeft>
 
@@ -29,6 +29,14 @@ function CategoryPage() {
                     </p>
                 </HeaderRight>
             </Header>
+
+                <Body>
+                   
+
+                    <h3>Category Description:</h3>
+                    <p>{categoryDescription}</p> 
+
+                </Body>
 
          
                
@@ -41,6 +49,8 @@ function CategoryPage() {
 }
 
 export default CategoryPage
+const Body = styled.div`
+`; 
 const  CategoryContainer = styled.div`
     
     flex: 0.7;

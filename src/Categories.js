@@ -35,7 +35,10 @@ function Categories(){
                         <CategoryOption 
                         key = {doc.id} 
                         id ={doc.id}  
-                        name = {doc.data().name}/>
+                        name = {doc.data().name}
+                        Description ={doc.data().description}
+                        Parent = {doc.data().parent}
+                        />
                     ))}
                     
                     <CategoryOption  Icon = {AddCircleIcon}  addCategoryOption/>

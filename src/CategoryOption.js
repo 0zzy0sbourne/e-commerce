@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { db } from './firebase';
 import { collection, doc, setDoc } from "firebase/firestore"; 
 import {useDispatch} from "react-redux"; 
-import { enterCategory } from './slices/categorySlice';
+import { enterCategory, setDescription, setName, setParent } from './slices/categorySlice';
 import CategoryPage from './CategoryPage';
 import App from './App';
 // import CategoriesForm from './CategoriesForm';
 
-function CategoryOption ({name, addCategoryOption, id, Icon}) {
+function CategoryOption ({name, addCategoryOption, id, Icon, Description, Parent}) {
            
         const dispatch  = useDispatch(); 
     
@@ -32,6 +32,10 @@ function CategoryOption ({name, addCategoryOption, id, Icon}) {
     const selectCategory =  () =>  {
             
                 dispatch(enterCategory(id));  
+                dispatch(setName(name)); 
+                dispatch(setParent(Parent)); 
+                dispatch(setDescription(Description)); 
+
             
           
     }; 
