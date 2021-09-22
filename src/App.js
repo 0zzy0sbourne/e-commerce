@@ -16,11 +16,14 @@ function App() {
          <Header/>
         <AppBody>
          <SideBar/>
-          <Switch>
-            <Route exact path= "/">
+          
+
+            <Switch>
+            <Route  path= "/">
               <CategoryPage/>
             </Route> 
-          </Switch>
+          </Switch> 
+
           
 
       </AppBody>
@@ -38,4 +41,6 @@ export default App
 const AppBody = styled.div`
 display: flex;
 height: 100vh;
+
 `; 
+

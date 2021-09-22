@@ -10,6 +10,8 @@ import { useState } from 'react';
 import {useDispatch} from "react-redux"; 
 import {setName, setParent, setDescription,selectName,  selectParent, selectDescription} from "./slices/categorySlice";
 import {useSelector} from "react-redux"; 
+import CategoryPage from './CategoryPage';
+import AddCircleIcon from "@material-ui/icons/AddCircle"
 
 function Categories(){    
     //const dispatch = useDispatch();
@@ -36,9 +38,10 @@ function Categories(){
                         name = {doc.data().name}/>
                     ))}
                     
-                    <CategoryOption  name = "Add Category" addCategoryOption/>
+                    <CategoryOption  Icon = {AddCircleIcon}  addCategoryOption/>
                 
                 </nav>
+
               
             </CategoriesContainer>
     )
@@ -47,12 +50,6 @@ function Categories(){
 
 export default Categories
 const CategoriesContainer = styled.div`
-    margin-top: 40px; 
-    > nav {
-        display: flex; 
-        
-    }
-
 `; 
 
 

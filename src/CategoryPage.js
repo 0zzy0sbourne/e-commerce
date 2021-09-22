@@ -1,16 +1,21 @@
 import React from 'react'
 import styled from "styled-components"; 
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined"; 
-import {selectCategoryId} from "./slices/categorySlice"; 
+import {selectCategoryId, selectName, selectDescription, selectParent} from "./slices/categorySlice"; 
 import {useSelector} from "react-redux"; 
 import EditCategory from './EditCategory';
-
+import {db} from   "./firebase"; 
+import CategoryInfo from './CategoryInfo';
 function CategoryPage() {
     
     const categoryId = useSelector(selectCategoryId); 
-
+    const categoryName = useSelector(selectName);
+    const categoryParent = useSelector(selectParent); 
+    const categoryDescription = useSelector(selectDescription); 
+     
+                 
     return (
-        <ChatContainer>
+        <CategoryContainer>
             <Header> 
                 <HeaderLeft>
                     <h4>
@@ -25,49 +30,41 @@ function CategoryPage() {
                 </HeaderRight>
             </Header>
 
-            <CategoryInfo>
+            <CategoryInfo
+                categoryId = {categoryId} 
+                categoryName = {categoryName}
+                categoryParent = {categoryParent}
+                categoryDescription = {categoryDescription}
+            >
                 {/* list out the category properties */}
+               
             </CategoryInfo>
 
             <EditCategory 
              categoryId = {categoryId}
             />
-        </ChatContainer>
+        </CategoryContainer>
     )
 }
 
 export default CategoryPage
-const CategoryInfo = styled.div`
-`; 
-const  ChatContainer = styled.div`
-    flex: 0.7; 
-    flex-grow: 1;
-    overflow-y: scroll;
-    margin-top: 40px; 
+const  CategoryContainer = styled.div`
+    flex: 0.7;
+    flex-grow:1;
+    overflow-y: scroll;  
+    margin-top:50px; 
 `;
 const Header = styled.div`
-    display: flex;
-    justify-content: space-between; 
-    padding: 20px; 
-    border-bottom:  1px solid lightgray; 
+  display:flex;
+  justify-content: space-between; 
+  padding: 20px;
+  border-bottom: 1px solid  lightgray; 
 `;
 const HeaderLeft = styled.div`
-    display: flex; 
-    align-items: center; 
-    >h4 {
-    display:flex;
-    text-transform: lowercase; 
+    
 }
 
 `;
 const HeaderRight = styled.div`
-    >p {
-        display: flex; 
-        align-items:center; 
-        font-size: 14px; 
-    }
-    > p > .MuiSvgIcon-root{
-        margin-right: 5px !important; 
-        font-size: 16px; 
-    }
+ 
 `;

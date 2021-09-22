@@ -6,6 +6,7 @@ import AppsIcon  from "@material-ui/icons/Apps"
 import DraftsIcon from "@material-ui/icons/Drafts"; 
 import Dashboard from './Dashboard';
 // import CategoryList from './CategoryList';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ProductList from './ProductList';
 import Categories from "./Categories"; 
 import App from './App';
@@ -22,26 +23,17 @@ function SideBar() {
                 <SidebarOptionContainer >
                     <InboxIcon fontSize = "small" style={{padding: 10}}/> 
                  
-                        <Link to = "/" >Home</Link>
+                        <Link to = "/" ><h3>Home</h3></Link>
                     
            
                 </SidebarOptionContainer>
 
-                <SidebarOptionContainer >
-                    <InboxIcon fontSize = "small" style={{padding: 10}}/> 
-                 
-                        <Link to = "/categories" >Categories</Link>
-                    
-           
-                </SidebarOptionContainer> 
-
-
-
+            
                 <SidebarOptionContainer >
                 
                     <AppsIcon fontSize = "small" style={{padding: 10}}/>
                     
-                        <Link to = "/products">Products</Link>
+                        <Link to = "/products"><h3>Products</h3></Link>
                     
                 </SidebarOptionContainer> 
 
@@ -51,12 +43,26 @@ function SideBar() {
                 
                      <DraftsIcon fontSize = "small" style={{padding: 10}}/>
                    
-                        <Link to = "/dashboard">Dashboard</Link>
+                        <Link to = "/dashboard"><h3>Dashboard</h3></Link>
                     
                  
                 </SidebarOptionContainer> 
 
                 <hr/>
+
+
+                    <SidebarOptionContainer >
+                    <ExpandMoreIcon fontSize = "small" style={{padding: 10}}/> 
+                 
+                    <h3>Categories</h3>
+           
+                </SidebarOptionContainer> 
+                <hr/>
+
+
+                <Categories/>
+
+
 
                 <UserDropdownContainer>
 
@@ -67,7 +73,6 @@ function SideBar() {
             
             
             <Route path="/products" component={ProductList} />
-            <Route path="/categories" component={Categories} />
             <Route path="/dashboard" component={Dashboard} />
             </Switch>
             </Router>
@@ -80,12 +85,12 @@ const SidebarContainer = styled.div`
 background-color: #fae5df;
 color: white; 
 flex: 0.3; 
-max-width: 260px;
+max-width: 260px; 
 margin-top: 60px; 
     > hr { 
-        margin-top: 10px; 
+        margin-top: 0px; 
         border: 1px solid #49274b; 
-        margin-bottom : 10px; 
+        margin-bottom : 0px; 
     } 
 `; 
 
