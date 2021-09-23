@@ -18,7 +18,7 @@ function ProductOption({name, description, gender, price, sales, imgUrl, categor
     return (
         <ProductOptionContainer>
             
-         <img src = {imgUrl} height="150px" width="150px"/> 
+         <img src = {imgUrl} height="80px" width="80px"/> 
              <div>
             <p>{name}</p>
             </div>
@@ -48,6 +48,7 @@ function ProductOption({name, description, gender, price, sales, imgUrl, categor
 export default ProductOption
 const ProductOptionContainer = styled.div`
 margin-top: 50px;
+height: 60px;
 display: flex;
 justify-content: space-between ;
 align-items: center;
@@ -57,7 +58,7 @@ border-radius: 50px;
 `;
 const VerticalRow = styled.div`
 Float:left;
- height:100px;
+ height:50px;
  width:1px; /* edit this if you want */
  background-color: black;
 `;

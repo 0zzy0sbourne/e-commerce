@@ -3,8 +3,9 @@ import { Router, Switch, Link, Route } from 'react-router-dom';
 import styled from "styled-components";
 import { db } from './firebase';
 import { collection, doc, setDoc } from "firebase/firestore"; 
-import {useDispatch} from "react-redux"; 
+import {useDispatch, useSelector} from "react-redux"; 
 import { enterCategory, setDescription, setName, setParent } from './slices/categorySlice';
+import { enterCategoryId, selectCategoryIdArray } from './slices/categoryidSlice';
 import CategoryPage from './CategoryPage';
 import App from './App';
 // import CategoriesForm from './CategoriesForm';
@@ -30,7 +31,7 @@ function CategoryOption ({name, addCategoryOption, id, Icon, Description, Parent
   
 
     const selectCategory =  () =>  {
-            
+                dispatch(enterCategoryId(id)); 
                 dispatch(enterCategory(id));  
                 dispatch(setName(name)); 
                 dispatch(setParent(Parent)); 
@@ -40,7 +41,8 @@ function CategoryOption ({name, addCategoryOption, id, Icon, Description, Parent
           
     }; 
 
-
+        const categoryidarray = useSelector(selectCategoryIdArray)
+        // console.log(categoryidarray); 
     
     return (
         <CategoryOptionContainer 

@@ -12,10 +12,12 @@ import Categories from "./Categories";
 import App from './App';
 import CategoryPage from './CategoryPage';
 import HomePage from './HomePage';
+import {useSelector} from "react-redux";
+import { selectCategoryIdArray } from './slices/categoryidSlice';
 function SideBar() {
 
     const [showCategories, setshowCategories] = useState(false); 
-    
+ // const categoryidarray = useSelector(selectCategoryIdArray); 
     return (
         <Router>
             <SidebarContainer>

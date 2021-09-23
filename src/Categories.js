@@ -8,17 +8,22 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 // import CategoriesForm from './CategoriesForm';
 import { useState } from 'react';
 import {useDispatch} from "react-redux"; 
-import {setName, setParent, setDescription,selectName,  selectParent, selectDescription} from "./slices/categorySlice";
+import {setName, setParent, setDescription,selectName,  selectParent, selectDescription, selectCategoryId} from "./slices/categorySlice";
 import {useSelector} from "react-redux"; 
 import CategoryPage from './CategoryPage';
+import { enterCategoryId, selectCategoryIdArray} from './slices/categoryidSlice';
 import AddCircleIcon from "@material-ui/icons/AddCircle"
 
 function Categories(){    
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
    //  const [showComponent, setShowComponent] = useState(false); 
      const [categories, loading, error ] = useCollection(db.collection("categories"));
     // let categoryname, categoryparent, categorydescription; 
-     
+   /* 
+    categories?.docs.map((doc) => {
+        dispatch(enterCategoryId(doc.id))
+    })
+    */  
 
            
      
