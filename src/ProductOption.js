@@ -2,9 +2,11 @@ import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import  {selectProductName, selectDescription, selectGender, selectSales, selectPrice, selectImgUrl } from "./slices/productSlice"; 
 import styled from "styled-components";
+import {db} from "./firebase"; 
 
+function ProductOption({name, description, gender, price, sales, imgUrl, categoryId }) {
 
-function ProductOption({name, description, gender, price, sales, imgUrl}) {
+      
     /*
     const name = useSelector(selectProductName);
     const description = useSelector(selectDescription); 
@@ -15,27 +17,28 @@ function ProductOption({name, description, gender, price, sales, imgUrl}) {
     */ 
     return (
         <ProductOptionContainer>
+            
          <img src = {imgUrl} height="150px" width="150px"/> 
              <div>
-            <h4>Name:</h4>
             <p>{name}</p>
             </div>
+            <VerticalRow/>
             <div>
-            <h4>Description:</h4>
             <p>{description}</p>
             </div>
+            <VerticalRow/>
              <div>
-            <h4>Gender:</h4>
             <p>{gender}</p>
             </div>
+            <VerticalRow/>
              <div>
-            <h4>Price:</h4>
             <p>{price}</p>
             </div>
+            <VerticalRow/>
              <div>
-            <h4>Sales:</h4>
             <p>{sales}</p>
             </div>  
+            
             
 
         </ProductOptionContainer>
@@ -44,10 +47,19 @@ function ProductOption({name, description, gender, price, sales, imgUrl}) {
 
 export default ProductOption
 const ProductOptionContainer = styled.div`
+margin-top: 50px;
 display: flex;
 justify-content: space-between ;
 align-items: center;
-padding: 20px;  
+padding: 20px;
+background-color: #fae5df;
+border-radius: 50px;
+`;
+const VerticalRow = styled.div`
+Float:left;
+ height:100px;
+ width:1px; /* edit this if you want */
+ background-color: black;
 `;
 
 /*

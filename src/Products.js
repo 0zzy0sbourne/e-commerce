@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components"; 
+import AddIcon from "@material-ui/icons/Add"; 
 import {
     setProductName, 
     setDescription, 
@@ -27,12 +28,32 @@ function Products({categoryId}) {
     db.collection("categories").doc(categoryId).collection("Products")
   );
 
- 
+         const   addProduct =  () =>  {
+        const productName = prompt("Please enter the product name"); 
+        const productDescription = prompt("Please enter the product description:"); 
+        const productGender = prompt("Please enter the product gender:"); 
+        const productPrice = prompt("Please enter the product price:");
+        const productImgUrl = prompt("Please enter the product's image url:");
+        // sales will be set to 0 
+       
+        if(productName){
+            db.collection("categories").doc(categoryId).collection("Products").add({
+                productname: productName,
+                productdescription: productDescription,
+                productgender: productGender,
+                price: productPrice,
+                imgurl: productImgUrl,
+                sales: 0, 
+            })
+        }
+     
+        }; 
 
    
     return (
         
         <ProductsContainer>
+         
             {value?.docs.map((doc) => (
                 <ProductOption 
                     name = {doc.data().productname}
@@ -41,8 +62,11 @@ function Products({categoryId}) {
                     price={doc.data().price}
                     sales = {doc.data().sales}
                     imgUrl = {doc.data().imgurl}
+                    categoryId = {categoryId}
                 /> 
             )) }
+
+            <AddIcon  onClick={addProduct}/> 
 
         </ProductsContainer>
     )
@@ -52,4 +76,24 @@ export default Products
 
 const ProductsContainer = styled.div`
 
+    > .MuiSvgIcon-root{
+         position: fixed;
+          
+        font-size: 100px;
+        color: #ed7066; 
+        padding: 50px;
+        margin-left: 45%;
+        color: #ed7966; 
+       cursor: pointer; 
+
+       transition: transform .10s;
+        :hover {
+            transform: scale(1.2);
+            color: #49274b; 
+        }
+        :active{
+            color:  #49274b; 
+        }
+        
+    }
 `; 
