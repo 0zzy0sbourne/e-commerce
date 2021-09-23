@@ -72,17 +72,27 @@ const CategoryOptionContainer = styled.div`
        height: 1%; 
     
        font-size: 17px; 
-       color: #ed7966; 
+       color:#49274b; 
        cursor: pointer; 
        transition: transform .10s;
         :hover {
             transform: scale(1.2);
-            color: #49274b; 
+            color:#ed7966; 
         }
         :active{
             color:  #49274b; 
         }
    }
+    > .MuiSvgIcon-root{
+         cursor: pointer; 
+       transition: transform .10s;
+        :hover {
+            transform: scale(1.2);
+            color: #49274b; 
+        }
+        
+
+    }
 `;
 
  /*

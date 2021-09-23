@@ -78,11 +78,11 @@ const ProductsContainer = styled.div`
 
     > .MuiSvgIcon-root{
          position: fixed;
-          
+          bottom: 0; 
         font-size: 100px;
         color: #ed7066; 
         padding: 50px;
-        margin-left: 45%;
+        margin-left: 38%;
         color: #ed7966; 
        cursor: pointer; 
 

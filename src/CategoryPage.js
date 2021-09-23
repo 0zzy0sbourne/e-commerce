@@ -115,9 +115,7 @@ db.collection('categories').doc(categoryId).collection('Products')
          
                
 
-            <EditCategory 
-             categoryId = {categoryId}
-            />
+          
         </CategoryContainer>
     )
 }
@@ -177,5 +175,10 @@ const HeaderRight = styled.div`
                         ))}
 
 
+*/
+/*
+  <EditCategory 
+             categoryId = {categoryId}
+            />
 */ 
 
