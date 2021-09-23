@@ -23,7 +23,7 @@ function SideBar() {
             <SidebarContainer>
                 <SidebarHeader>
                     <SidebarInfo>
-                        <h2>E-Commerce</h2>                        
+                        <h2>Baby Clothing</h2>                        
                     </SidebarInfo>
                 </SidebarHeader>
                 
