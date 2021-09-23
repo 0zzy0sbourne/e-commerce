@@ -87,9 +87,10 @@ db.collection('categories').doc(categoryId).collection('Products')
         <CategoryContainer>
             <Header> 
                 <HeaderLeft>
-                    <h2>
+                    <h1>
                         <strong>{categoryName}</strong>
-                    </h2>
+                    </h1>
+                    <TitleHorizontalRow/>
                 </HeaderLeft>
 
                 <HeaderRight>
@@ -100,10 +101,10 @@ db.collection('categories').doc(categoryId).collection('Products')
             </Header>
 
                 <Body>
-                   
                     <CategoryDescriptionContainer>
-                    <h3>Description:</h3>
+                    <h3>Category Description:</h3>
                     <p>{categoryDescription}</p> 
+                    <DescriptionHorizontalRow/>
                     </CategoryDescriptionContainer>
 
                   
@@ -134,20 +135,23 @@ const  CategoryContainer = styled.div`
 const ProductsContainer = styled.div`
 `; 
 const CategoryDescriptionContainer =styled.div`
-    border-bottom: 1px solid  lightgray;
+margin-left: 45px;
+padding: 20px;
 `; 
 const Header = styled.div`
   display:flex;
   justify-content: space-between; 
-  padding: 12px;
-  border-bottom: 1px solid  lightgray; 
+  padding:12px;
 `;
 
 const HeaderLeft = styled.div`
     display: flex;
-    >h4 {
-        margin-right: 10px;
-        display: flex;
+    flex-direction: column;
+    >h1 {
+        margin-left: 50px;
+        margin-top: 31px;
+        margin-bottom: 5px;
+
          
     }    
 `;
@@ -157,6 +161,24 @@ const HeaderRight = styled.div`
       display: flex;
       align-items: center; 
   }
+`;
+
+const TitleHorizontalRow = styled.div`
+Float:left;
+margin-top: 0;
+ height:2px;
+ margin-left: 50px;
+ width:120px; /* edit this if you want */
+ background-color: #ed7066;
+`;
+
+const DescriptionHorizontalRow = styled.div`
+Float:left;
+margin-top : 0; 
+ height:2px;
+ margin-left: 0;
+ width:300px; /* edit this if you want */
+ background-color: #ed7066;
 `;
 
 

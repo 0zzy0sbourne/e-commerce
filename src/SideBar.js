@@ -93,7 +93,7 @@ export default SideBar
 const SidebarContainer = styled.div`
 background-color: #fae5df;
 color: white; 
-flex: 0.3; 
+flex: 0.3;
 max-width: 260px; 
 margin-top: 60px; 
     > hr { 
@@ -111,7 +111,7 @@ const SidebarHeader = styled.div`
 `;
 const SidebarInfo = styled.div`
 >h2 {
-    font-size: 15px;
+    font-size: 30px;
     font-weight: 900;
     margin-bottom: 5px; 
     color: #141850;
@@ -119,8 +119,8 @@ const SidebarInfo = styled.div`
 `; 
 const  SidebarOptionContainer = styled.div`
     display: flex;
-    font-size: 12px; 
-    align-items: center; 
+    font-size: 15px; 
+    align-items: center;
     padding-left: 2px; 
     cursor: pointer; 
     :hover {
